@@ -1,13 +1,12 @@
 import pytest
 
-
 from src.masks import get_mask_card_number, get_mask_account
 
 
 @pytest.mark.parametrize('value, expected', [
-    (1000000000000000, '1000 00 ** **** 0000'),
-    (1234567890123456, '1234 56 ** **** 3456'),
-    (9999999999999999, '9999 99 ** **** 9999')
+    ('1000000000000000', '1000 00 ** **** 0000'),
+    ('1234567890123456', '1234 56 ** **** 3456'),
+    ('9999999999999999', '9999 99 ** **** 9999')
 ])
 def test_get_mask_card_number(value, expected):
     assert get_mask_card_number(value) == expected
@@ -19,9 +18,9 @@ def test_get_mask_card_number(value, expected):
 
 
 @pytest.mark.parametrize('value, expected', [
-    (10000000000000000000, '**0000'),
-    (12345678901234567890, '**7890'),
-    (99999999999999999999, '**9999')
+    ('10000000000000000000', '**0000'),
+    ('12345678901234567890', '**7890'),
+    ('99999999999999999999', '**9999')
 ])
 def test_get_mask_account(value, expected):
     assert get_mask_account(value) == expected

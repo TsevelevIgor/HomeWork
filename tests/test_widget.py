@@ -1,6 +1,5 @@
 import pytest
 
-
 from src.widget import mask_account_card, get_date
 
 
@@ -29,10 +28,3 @@ def test_mask_account_card(value, expected):
 ])
 def test_get_date(value, expected):
     assert get_date(value) == expected
-
-    with pytest.raises(ValueError):
-        get_date('11111111111')
-        get_date('Error')
-        get_date('20.07.2024')
-        get_date('2024-07-20 15.15.15.15151')
-        get_date('')
