@@ -10,3 +10,8 @@ git clone https://github.com/TsevelevIgor/HomeWork.git
 ```
 pip install -r requirements.txt
 ```
+## Тестирование:
+Проект покрыт тестами Pytest. Для их запуска выполните команду
+```
+pytest
+```

@@ -7,15 +7,15 @@ def mask_account_card(account_card: str) -> str:
     card_name = ['MasterCard', 'Maestro', 'Visa Classic', 'Visa Platinum', 'Visa Gold']
     split_name = account_card.split()
     attached_name = ' '.join(split_name[0:2])
-    if attached_name or split_name[-2] in card_name:
+    if attached_name in card_name or split_name[-2] in card_name:
         if len(split_name[-1]) == 16:
             num = get_mask_card_number(int(account_card.split()[-1]))
             return f'{account_card[:-16]}{num}'
-        elif len(split_name[-1]) == 20 and split_name[-2] == 'Счет':
-            num = get_mask_account(int(split_name[-1]))
-            return f'{account_card[:-20]}{num}'
-        else:
-            raise ValueError("Неверное количество символов")
+    elif len(split_name[-1]) == 20 and split_name[-2] == 'Счет':
+        num = get_mask_account(int(split_name[-1]))
+        return f'{account_card[:-20]}{num}'
+    elif account_card == '':
+        raise ValueError("Неверное количество символов")
     else:
         raise ValueError("Неверное количество символов")
 

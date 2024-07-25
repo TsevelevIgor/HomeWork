@@ -7,16 +7,16 @@ list_of_dicts = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35
                  {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
 
 
-def filter_by_state(list_of_dicts: list[dict[str, Any]], state_by_key: str = 'EXECUTED') -> list[dict[str, Any]]:
+def filter_by_state(list_dicts: list[dict[str, Any]], state_by_key: str = 'EXECUTED') -> list[dict[str, Any]]:
     """Функция сортирует список по ключу state"""
     new_list = []
-    for item in list_of_dicts:
+    for item in list_dicts:
         if item.get('state') == state_by_key:
             new_list.append(item)
     return new_list
 
 
-def sort_by_date(list_of_dicts: list[dict[str, Any]], reverse: bool = True) -> list[dict[str, Any]]:
+def sort_by_date(list_dicts: list[dict[str, Any]], reverse: bool = True) -> list[dict[str, Any]]:
     """Функция сортирует список по дате"""
-    sorted_by_date = sorted(list_of_dicts, key=lambda list_of_dicts: list_of_dicts['date'], reverse=reverse)
+    sorted_by_date = sorted(list_dicts, key=lambda list_dicts: list_dicts['date'], reverse=reverse)
     return sorted_by_date
