@@ -11,6 +11,7 @@ def mask_account_card(account_card: str) -> str:
         if len(split_name[-1]) == 16:
             num = get_mask_card_number(int(account_card.split()[-1]))
             return f'{account_card[:-16]}{num}'
+        raise ValueError("Неверное количество символов")
     elif len(split_name[-1]) == 20 and split_name[-2] == 'Счет':
         num = get_mask_account(int(split_name[-1]))
         return f'{account_card[:-20]}{num}'
