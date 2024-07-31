@@ -6,14 +6,12 @@ def log(filename=""):
     def my_decorator(func):
         def wrapper(*args, **kwargs):
             try:
-                time_1 = time()
                 result = func(*args, **kwargs)
-                time_2 = time()
                 if filename:
                     with open(filename, "w") as file:
-                        file.write(f"my_function start - {time_1} \nmy_function ok \nmy_function stop - {time_2}")
+                        file.write("my_function ok")
                 else:
-                    print(f"my_function start - {time_1} \nmy_function ok \nmy_function stop - {time_2}")
+                    print("my_function ok")
                 return result
             except Exception as e:
                 if filename:
