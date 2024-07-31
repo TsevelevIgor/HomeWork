@@ -1,6 +1,3 @@
-from datetime import time
-
-
 def log(filename=""):
     """Декоратор отображает информацию о функциях."""
     def my_decorator(func):
