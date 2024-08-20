@@ -1,12 +1,12 @@
 import json
 
 
-def get_transactions():
+def get_transactions(file_path: str):
     """Принимает путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     try:
-        with open('operations.json') as operations:
+        with open(file_path, 'r', encoding='utf-8') as operations:
             try:
-                transactions_data = json.loads(operations)
+                transactions_data = json.load(operations)
                 return transactions_data
             except json.JSONDecodeError:
                 transactions_data = []
