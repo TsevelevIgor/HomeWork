@@ -31,5 +31,5 @@ def test_external_api(mock_get):
         })
     mock_get.assert_called_once_with(
             "GET",
-            'https://api.apilayer.com/currency_data/convert?to=RUB&from=USD&amount=8221.37',
+            'https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount=8221.37',
             headers={"apikey": token_exchange})
