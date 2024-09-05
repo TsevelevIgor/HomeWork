@@ -1,5 +1,6 @@
 def log(filename=""):
     """Декоратор отображает информацию о функциях."""
+
     def my_decorator(func):
         def wrapper(*args, **kwargs):
             try:
@@ -16,11 +17,13 @@ def log(filename=""):
                         file.write(f"my_function error: {e}. Inputs: {args}, {kwargs}")
                 else:
                     print(f"my_function error: {e}. Inputs: {args}, {kwargs}")
+
         return wrapper
+
     return my_decorator
 
 
-@log(filename='mylog.txt')
+@log(filename="mylog.txt")
 def my_function(x: int, y: int) -> int:
     """Принимает два значения и складывает их"""
     return x + y
