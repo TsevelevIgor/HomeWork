@@ -1,4 +1,0 @@
-
-
-
-def search_operations():
